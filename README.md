@@ -4,7 +4,7 @@
 
 Site profissional moderno para a advogada Paula Cesare de Oliveira, especializada em Direito Previdenciário. O site foi redesenhado com uma paleta de cores verde oliva, imagens profissionais e interações de usuário aprimoradas para transmitir elegância, confiança e uma experiência de usuário (UX) superior.
 
-## 🎨 **Novo Design Sofisticado**
+##  **Novo Design Sofisticado**
 
 ### **Características Visuais**
 - **Paleta Verde Oliva**: Cores que transmitem seriedade, natureza e segurança.
@@ -21,7 +21,7 @@ Site profissional moderno para a advogada Paula Cesare de Oliveira, especializad
 - **Animações ao Scroll**: Elementos surgem suavemente na tela, guiando o usuário pela página.
 - **Navegação Fixa e Inteligente**: Menu superior com efeito de blur que se torna sólido ao rolar a página.
 
-## 🚀 **Funcionalidades Implementadas**
+##  **Funcionalidades Implementadas**
 
 ### **Interface Interativa**
 - **Acordeão de Serviços**: Cada serviço é um item colapsável que revela informações detalhadas, exemplos e um checklist.
@@ -37,13 +37,13 @@ Site profissional moderno para a advogada Paula Cesare de Oliveira, especializad
 4. **Diferenciais**: Seção focada em benefícios com ícones.
 5. **Contato**: Seção redesenhada com imagem de fundo da balança da justiça e CTA para abrir o modal de contato.
 
-## 📱 **Responsividade e Performance**
+##  **Responsividade e Performance**
 
 - **Mobile-First**: Design otimizado para dispositivos móveis.
 - **Imagens Otimizadas**: As imagens devem ser otimizadas para um carregamento rápido.
 - **Performance de Animação**: Animações de scroll são desativadas após a primeira visualização para não sobrecarregar o navegador.
 
-## 🛠 **Tecnologias Utilizadas**
+##  **Tecnologias Utilizadas**
 
 - **HTML5**: Estrutura semântica moderna.
 - **CSS3**: Grid, Flexbox, variáveis CSS, animações e pseudo-elementos.
@@ -51,12 +51,12 @@ Site profissional moderno para a advogada Paula Cesare de Oliveira, especializad
 - **Font Awesome**: Ícones profissionais.
 - **Google Fonts**: Tipografia Inter.
 
-## 📋 **Como Usar**
+##  **Como Usar**
 
 1.  Certifique-se de que a pasta `assets` existe e contém as imagens necessárias.
 2.  Abra o arquivo `index.html` em qualquer navegador moderno.
 
-## 🎨 **Personalização**
+##  **Personalização**
 
 ### **Cores Principais (CSS Variables)**
 Edite as variáveis no início da tag `<style>` em `index.html`:
@@ -73,7 +73,7 @@ Edite as variáveis no início da tag `<style>` em `index.html`:
 ### **Informações de Contato**
 Edite as informações diretamente no HTML, nas seções de contato e no rodapé. Os números de telefone e links de WhatsApp foram atualizados conforme solicitado.
 
-## 📁 **Estrutura de Arquivos**
+##  **Estrutura de Arquivos**
 
 ```
 Paula Advogada/
