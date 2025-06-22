@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paula Cesare - Sua Aposentadoria com Segurança</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6B8E23; /* OliveDrab */
+      --primary-dark: #556B2F; /* DarkOliveGreen */
+      --secondary: #F5F5DC; /* Beige */
+      --nav-bg: #F6F3EE; /* Cor do fundo do logo */
+      --accent: #BDB76B; /* DarkKhaki */
+      --text: #36454F; /* Charcoal */
+      --text-light: #808080; /* Gray */
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #8F9779, #556B2F);
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header Moderno */
+    .hero {
+      background: url('assets/pexels-sora-shimazaki-5669602.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero .tagline {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero .description {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      opacity: 0.8;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Navegação */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .nav.scrolled {
+      box-shadow: var(--shadow);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .nav-logo a {
+        text-decoration: none;
+        color: var(--primary-dark);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .nav-logo img {
+        height: 40px;
+    }
+
+    .footer-logo img {
+        height: 60px;
+        width: auto;
+        vertical-align: middle;
+        filter: brightness(0) invert(1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Seções */
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Serviços com Cards Expansíveis */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    .service-card {
+        background-color: var(--white);
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    .service-card:hover::before {
+        transform: scaleX(1);
+    }
+    .service-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
+    }
+    .service-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+    .service-icon::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .service-card:hover .service-icon::before {
+        opacity: 1;
+    }
+    .service-card h3 {
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--text);
+    }
+    .service-card-intro {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
+    .card-toggle-btn {
+        background: none;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        align-self: flex-start;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .card-toggle-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--primary);
+        transition: left 0.3s ease;
+        z-index: -1;
+    }
+    .card-toggle-btn:hover::before {
+        left: 0;
+    }
+    .card-toggle-btn:hover {
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Modal de Serviços em Tela Cheia */
+    .service-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1002;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        backdrop-filter: blur(8px);
+    }
+    
+    .service-modal-overlay.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .service-modal-content {
+        background: var(--white);
+        width: 95%;
+        max-width: 900px;
+        max-height: 90vh;
+        border-radius: 20px;
+        position: relative;
+        transform: scale(0.8) translateY(50px);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .service-modal-overlay.visible .service-modal-content {
+        transform: scale(1) translateY(0);
+    }
+
+    .service-modal-header {
+        background: var(--gradient);
+        color: var(--white);
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-modal-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        pointer-events: none;
+    }
+
+    .service-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: var(--white);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        z-index: 1;
+    }
+
+    .service-modal-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1) rotate(90deg);
+    }
+
+    .service-modal-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-modal-subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-modal-body {
+        padding: 2rem;
+        max-height: 60vh;
+        overflow-y: auto;
+        background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .service-modal-body h4 {
+        color: var(--primary-dark);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 1.5rem 0 1rem;
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .service-modal-body h4::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 20px;
+        background: var(--primary);
+        border-radius: 2px;
+    }
+
+    .service-modal-body h4:first-child {
+        margin-top: 0;
+    }
+
+    .service-modal-body p {
+        color: var(--text);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+    }
+
+    .service-modal-body ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 1rem 0;
+    }
+
+    .service-modal-body ul li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text);
+        line-height: 1.6;
+        transition: all 0.3s ease;
+    }
+
+    .service-modal-body ul li:hover {
+        transform: translateX(5px);
+        color: var(--primary-dark);
+    }
+
+    .service-modal-body ul li::before {
+        content: '✔';
+        color: var(--primary);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .service-modal-body ul li:hover::before {
+        transform: scale(1.2);
+    }
+
+    .service-modal-footer {
+        padding: 1.5rem 2rem;
+        background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .service-nav-btn {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-nav-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .service-nav-btn:hover::before {
+        left: 100%;
+    }
+
+    .service-nav-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .service-nav-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .service-nav-btn:disabled::before {
+        display: none;
+    }
+
+    .service-counter {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        font-weight: 500;
+        background: rgba(0,0,0,0.05);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    /* Progress Bar */
+    .service-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: rgba(255,255,255,0.2);
+        overflow: hidden;
+    }
+
+    .service-progress-bar {
+        height: 100%;
+        background: var(--white);
+        transition: width 0.3s ease;
+        border-radius: 0 2px 2px 0;
+    }
+
+    /* Scrollbar personalizada para o modal */
+    .service-modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .service-modal-body::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .service-modal-body::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+    }
+
+    .service-modal-body::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+    }
+
+    /* Seção Sobre */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    
+    .about-image {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Seção Diferenciais */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-item:hover {
+        border-color: #e2e8f0;
+        background: var(--white);
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--white);
+      font-size: 2rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .feature-item p {
+      color: var(--text-light);
+    }
+
+    /* Seção Contato */
+    #contato .container {
+      background: url('assets/pexels-pavel-danilyuk-8111818.jpg') no-repeat center center/cover;
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+    
+    #contato .container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255, 0.9);
+        border-radius: 20px;
+    }
+    
+    #contato .section-title, #contato .section-subtitle {
+        color: var(--text);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-item .email-link {
+        cursor: pointer;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-dark);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: background 0.3s ease;
+    }
+    
+    .contact-icon:hover {
+        background: var(--primary);
+    }
+
+    .contact-text h4 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-text p, .contact-text a {
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-overlay.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    
+    .modal-overlay.visible .modal-content {
+        transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: var(--text-light);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.2);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo a {
+        display: inline-block;
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 700;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+    
+    .footer-logo a:hover {
+        transform: scale(1.05);
+        color: var(--accent);
+    }
+
+    .footer-logo img {
+        height: 60px;
+        transition: transform 0.3s ease;
+    }
+    
+    .footer-logo img:hover {
+        transform: scale(1.05);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s ease, color 0.3s ease;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: width 0.4s ease;
+    }
+    
+    .footer-links a:hover::after {
+        width: 100%;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+    
+    .footer-social {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-social a {
+        color: var(--white);
+        font-size: 1.5rem;
+        opacity: 0.8;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+        opacity: 1;
+        transform: translateY(-3px) scale(1.1);
+    }
+    
+    .footer-copyright {
+        opacity: 0.7;
+        font-size: 0.9rem;
+    }
+    
+    /* Toast Notification */
+    .toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--primary-dark);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        box-shadow: var(--shadow-lg);
+        z-index: 1002;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .toast.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -10px);
+    }
+
+    /* Animações */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--text);
+        cursor: pointer;
+        z-index: 1001;
+      }
+      
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .service-modal-content {
+        width: 98%;
+        max-height: 95vh;
+        margin: 1rem;
+      }
+      
+      .service-modal-header {
+        padding: 1.5rem;
+      }
+      
+      .service-modal-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+      
+      .service-modal-body {
+        padding: 1.5rem;
+        max-height: 50vh;
+      }
+      
+      .service-modal-footer {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .service-nav-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    /* Mobile Nav Menu */
+    .mobile-nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background: var(--nav-bg);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        padding: 6rem 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-nav-menu.open {
+        right: 0;
+    }
+    .mobile-nav-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        color: var(--text);
+        cursor: pointer;
+    }
+    .mobile-nav-menu ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .mobile-nav-menu ul a {
+        text-decoration: none;
+        color: var(--text);
+        font-size: 1.3rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .mobile-nav-menu ul a:hover {
+        color: var(--primary);
+    }
+    body.mobile-nav-active {
+        overflow: hidden;
+    }
+
+    /* Scroll suave e botão voltar ao topo */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--gradient);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: var(--shadow-lg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-logo">
+            <a href="#">
+                <img src="assets/Logo_Paula_Advogada.png" alt="Paula Cesare Logo">
+                Paula Cesare
+            </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="mobile-nav-toggle" aria-label="Abrir menu de navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav-menu">
+    <button class="mobile-nav-close" aria-label="Fechar menu de navegação">&times;</button>
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Sua Aposentadoria com Segurança</h1>
+        <p class="tagline">Transformando sonhos em realidade</p>
+        <p class="description">Com mais de 10 anos de experiência, transformo a complexidade do Direito Previdenciário em segurança e tranquilidade para a sua aposentadoria.</p>
+        <div class="cta-buttons">
+          <a href="#contato" class="btn btn-primary email-link">
+            <i class="fas fa-calendar-check"></i>
+            Consulta Gratuita
+          </a>
+          <a href="https://wa.me/5511971146150" class="btn btn-primary" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Sobre -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <h2 class="section-title">Quem é Paula Cesare?</h2>
+      <p class="section-subtitle">Advogada especializada em Direito Previdenciário, dedicada a transformar sua jornada para a aposentadoria em uma experiência tranquila e segura.</p>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Especialista em Direito Previdenciário</h3>
+          <p>Sou Paula Cesare de Oliveira, advogada com mais de 10 anos de experiência focada exclusivamente em Direito Previdenciário. Minha missão é simplificar o complexo mundo da previdência social para você.</p>
+          <p>Acredito que todos merecem uma aposentadoria digna e tranquila. Por isso, dedico minha carreira a ajudar pessoas como você a conquistarem seus direitos de forma segura, transparente e eficiente.</p>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Anos de Experiência</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">200+</span>
+              <span class="stat-label">Casos de Sucesso</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+            <img src="assets/pexels-august-de-richelieu-4427553.jpg" alt="Advogada Paula Cesare" class="about-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Serviços -->
+  <section class="section" id="servicos" style="background: var(--secondary);">
+    <div class="container">
+      <h2 class="section-title">Como posso te ajudar?</h2>
+      <p class="section-subtitle">Ofereço serviços especializados para todas as suas necessidades previdenciárias. Explore cada área para saber mais.</p>
+      
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card" data-service="0">
+          <div class="service-card-header">
+            <div class="service-icon"><i class="fas fa-birthday-cake"></i></div>
+            <h3>Aposentadoria por Idade</h3>
+          </div>
+          <p class="service-card-intro">Análise completa para identificar o melhor momento para solicitar sua aposentadoria, maximizando seus benefícios.</p>
+          <button class="card-toggle-btn">Ver detalhes</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card" data-service="1">
+            <div class="service-card-header">
+              <div class="service-icon"><i class="fas fa-clock"></i></div>
+              <h3>Aposentadoria por Tempo de Contribuição</h3>
+            </div>
+            <p class="service-card-intro">Verificação detalhada do seu tempo de contribuição e orientação sobre as regras de transição aplicáveis ao seu caso.</p>
+            <button class="card-toggle-btn">Ver detalhes</button>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="service-card" data-service="2">
+            <div class="service-card-header">
+              <div class="service-icon"><i class="fas fa-heart"></i></div>
+              <h3>Aposentadoria por Invalidez</h3>
+            </div>
+            <p class="service-card-intro">Assessoria completa para casos de aposentadoria por invalidez, incluindo perícias médicas e recursos administrativos.</p>
+            <button class="card-toggle-btn">Ver detalhes</button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card" data-service="3">
+            <div class="service-card-header">
+              <div class="service-icon"><i class="fas fa-medkit"></i></div>
+              <h3>Benefícios por Incapacidade</h3>
+            </div>
+            <p class="service-card-intro">Auxílio-doença, auxílio-acidente e outros benefícios por incapacidade com acompanhamento especializado.</p>
+            <button class="card-toggle-btn">Ver detalhes</button>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card" data-service="4">
+            <div class="service-card-header">
+              <div class="service-icon"><i class="fas fa-search"></i></div>
+              <h3>Revisão de Benefícios</h3>
+            </div>
+            <p class="service-card-intro">Análise de benefícios já concedidos para identificar possíveis revisões e correções de valores.</p>
+            <button class="card-toggle-btn">Ver detalhes</button>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card" data-service="5">
+            <div class="service-card-header">
+              <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+              <h3>Consultoria Previdenciária</h3>
+            </div>
+            <p class="service-card-intro">Orientação personalizada para planejamento previdenciário e estratégias de contribuição.</p>
+            <button class="card-toggle-btn">Ver detalhes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Diferenciais -->
+  <section class="section" id="diferenciais">
+    <div class="container">
+      <h2 class="section-title">Meus Diferenciais</h2>
+      <p class="section-subtitle">Por que centenas de pessoas escolheram meus serviços</p>
+      
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4>Segurança Jurídica</h4>
+          <p>Seus direitos protegidos por uma profissional experiente e comprometida</p>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h4>Comunicação Clara</h4>
+          <p>Explico tudo de forma simples e transparente, sem juridiquês</p>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h4>Agilidade</h4>
+          <p>Processos otimizados para que você receba seu benefício o mais rápido possível</p>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h4>Compromisso Total</h4>
+          <p>Dedicação completa ao seu caso, desde a primeira consulta até o resultado final</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section class="section" id="contato">
+    <div class="container">
+      <h2 class="section-title">Vamos conversar?</h2>
+      <p class="section-subtitle">Estou aqui para ajudar você a conquistar seus direitos previdenciários</p>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Informações de Contato</h3>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Telefone</h4>
+              <p><a href="tel:+5511971146150">(11) 97114-6150</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-text">
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/5511971146150" target="_blank">(11) 97114-6150</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item email-link">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>paulacesare@hotmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Horário de Atendimento</h4>
+              <p>Segunda a Sexta, das 9h às 18h</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-text">
+            <h3>Pronto para começar?</h3>
+            <p>Clique abaixo para agendar sua consulta gratuita ou me chame no WhatsApp. Estou pronta para te ajudar a garantir o seu futuro.</p>
+            <div class="cta-buttons" style="justify-content: flex-start;">
+                <a class="btn btn-primary email-link">
+                  <i class="fas fa-calendar-check"></i>
+                  Agendar Consulta
+                </a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+            <a href="#">Paula Cesare</a>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="footer-social">
+            <a href="https://wa.me/5511971146150" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:paulacesare@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2025 Paula Cesare de Oliveira - OAB/SP: 442.837</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Modal de Contato -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalCloseBtn">&times;</button>
+        <h3>Solicitar Consulta Gratuita</h3>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">Preencha o formulário e retornarei o mais breve possível.</p>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Nome completo</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Telefone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Como posso te ajudar?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Descreva brevemente sua situação ou dúvida" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          <i class="fas fa-paper-plane"></i>
+          Enviar Solicitação
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Botão Voltar ao Topo -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Toast Notification -->
+  <div class="toast" id="toast-notification">Mensagem enviada com sucesso!</div>
+
+  <!-- Modal de Serviços em Tela Cheia -->
+  <div class="service-modal-overlay" id="serviceModal">
+    <div class="service-modal-content">
+      <div class="service-modal-header">
+        <div class="service-progress">
+          <div class="service-progress-bar" id="serviceProgressBar"></div>
+        </div>
+        <button class="service-modal-close" id="serviceModalClose">&times;</button>
+        <div class="service-modal-title">
+          <div class="service-icon" id="modalServiceIcon"><i class="fas fa-birthday-cake"></i></div>
+          <span id="modalServiceTitle">Aposentadoria por Idade</span>
+        </div>
+        <div class="service-modal-subtitle" id="modalServiceSubtitle">Análise completa para identificar o melhor momento para solicitar sua aposentadoria</div>
+      </div>
+      
+      <div class="service-modal-body" id="modalServiceBody">
+        <!-- Conteúdo será inserido dinamicamente -->
+      </div>
+      
+      <div class="service-modal-footer">
+        <button class="service-nav-btn" id="prevServiceBtn" disabled>
+          <i class="fas fa-chevron-left"></i>
+          Anterior
+        </button>
+        <div class="service-counter" id="serviceCounter">1 de 6</div>
+        <button class="service-nav-btn" id="nextServiceBtn">
+          Próximo
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dados dos serviços
+    const servicesData = [
+      {
+        title: "Aposentadoria por Idade",
+        icon: "fas fa-birthday-cake",
+        subtitle: "Análise completa para identificar o melhor momento para solicitar sua aposentadoria.",
+        fullDescription: "Você pode ter direito à aposentadoria por idade se já completou a idade mínima exigida e tem o tempo de contribuição necessário. A idade mínima varia conforme o tipo de atividade e sexo da pessoa.",
+        targetAudience: [
+            "Já passou dos 60 anos",
+            "Já trabalhou com registro ou contribuiu como autônomo",
+            "Está inseguro sobre quanto tempo tem de contribuição"
+        ]
+      },
+      {
+        title: "Aposentadoria por Tempo de Contribuição",
+        icon: "fas fa-clock",
+        subtitle: "Verificação detalhada do seu tempo de contribuição e orientação sobre as regras de transição.",
+        fullDescription: "Mesmo com a Reforma da Previdência, quem já contribuía antes de 2019 pode ter direito à aposentadoria por tempo de contribuição com regras de transição. Isso pode significar aposentadoria mais rápida e com valor maior.",
+        targetAudience: [
+            "Trabalhou por muitos anos com ou sem registro",
+            "Está perto de completar 30 (mulher) ou 35 (homem) anos de contribuição",
+            "Contribuiu como autônomo, MEI, rural ou servidor público"
+        ]
+      },
+      {
+        title: "Aposentadoria por Invalidez",
+        icon: "fas fa-heart",
+        subtitle: "Assessoria completa para casos de aposentadoria por invalidez, incluindo perícias e recursos.",
+        fullDescription: "Esse benefício é para quem, por motivo de doença ou acidente, perdeu totalmente a capacidade de trabalhar. É necessário passar por perícia médica do INSS e apresentar documentos bem estruturados.",
+        targetAudience: [
+            "Está em tratamento médico contínuo e afastado do trabalho",
+            "Já recebe auxílio-doença, mas a recuperação não é possível",
+            "Precisa de ajuda para preparar laudos e documentos"
+        ]
+      },
+      {
+        title: "Benefícios por Incapacidade",
+        icon: "fas fa-medkit",
+        subtitle: "Auxílio-doença, auxílio-acidente e outros benefícios com acompanhamento especializado.",
+        fullDescription: "Inclui auxílio-doença (quando você está temporariamente incapaz) e auxílio-acidente (quando fica com sequelas permanentes). É essencial comprovar o impacto da doença ou acidente no seu trabalho.",
+        targetAudience: [
+            "Está doente ou sofreu um acidente e precisou se afastar do trabalho",
+            "Foi afastado mas o INSS negou o benefício",
+            "Precisa renovar o auxílio-doença ou recorrer"
+        ]
+      },
+      {
+        title: "Revisão de Benefícios",
+        icon: "fas fa-search",
+        subtitle: "Análise de benefícios já concedidos para identificar possíveis revisões e correções de valores.",
+        fullDescription: "Você já recebe um benefício do INSS? É possível que o valor esteja errado ou que tenham deixado de considerar períodos ou contribuições. A revisão pode corrigir isso — e gerar pagamento retroativo.",
+        targetAudience: [
+            "Já recebe um benefício e desconfia que o valor está baixo",
+            "Mudou de contador ou teve vínculos antigos não considerados",
+            "Quer revisar o cálculo feito pelo INSS"
+        ]
+      },
+      {
+        title: "Consultoria Previdenciária",
+        icon: "fas fa-chart-line",
+        subtitle: "Orientação personalizada para planejamento previdenciário e estratégias de contribuição.",
+        fullDescription: "Se você ainda não tem direito à aposentadoria, mas quer se planejar, essa consultoria é essencial. A Dra. Paula analisa o seu histórico e orienta sobre quanto, quando e como contribuir para garantir o melhor benefício possível.",
+        targetAudience: [
+            "Está longe de se aposentar, mas quer garantir um futuro seguro",
+            "Tem dúvidas sobre qual valor contribuir por conta própria",
+            "Trabalha informalmente ou presta serviços como MEI/autônomo"
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Navegação fixa
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Botão voltar ao topo
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 300);
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Menu mobile
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+        
+        const openMobileMenu = () => {
+            mobileNavMenu.classList.add('open');
+            document.body.classList.add('mobile-nav-active');
+        };
+
+        const closeMobileMenu = () => {
+            mobileNavMenu.classList.remove('open');
+            document.body.classList.remove('mobile-nav-active');
+        };
+
+        mobileNavToggle.addEventListener('click', openMobileMenu);
+        mobileNavClose.addEventListener('click', closeMobileMenu);
+        
+        mobileNavMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Modal de Contato
+        const contactModal = document.getElementById('contactModal');
+        const emailLinks = document.querySelectorAll('.email-link');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        
+        const openContactModal = () => contactModal.classList.add('visible');
+        const closeContactModal = () => contactModal.classList.remove('visible');
+
+        emailLinks.forEach(link => link.addEventListener('click', openContactModal));
+        modalCloseBtn.addEventListener('click', closeContactModal);
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) closeContactModal();
+        });
+        
+        // Toast Notification
+        const toast = document.getElementById('toast-notification');
+        const showToast = (message) => {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        };
+
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                closeContactModal();
+                showToast('Mensagem enviada com sucesso!');
+            }, 1500);
+        });
+
+        // Navegação suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .feature-item, .about-content > div, .about-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Contador animado
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const updateCount = () => {
+                            const count = +counter.innerText.replace('+', '');
+                            const inc = target / 100; // Speed of animation
+
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc) + '+';
+                                setTimeout(updateCount, 20);
+                            } else {
+                                counter.innerText = target + '+';
+                            }
+                        };
+                        updateCount();
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const statsContainer = document.querySelector('.about-stats');
+        if (statsContainer) {
+            statsContainer.querySelectorAll('.stat-number').forEach(counter => {
+                const value = counter.textContent.replace('+', '');
+                counter.setAttribute('data-target', value);
+                counter.innerText = '0+';
+            });
+            statsObserver.observe(statsContainer);
+        }
+        
+        // Modal de Serviços
+        const serviceModal = document.getElementById('serviceModal');
+        const serviceModalClose = document.getElementById('serviceModalClose');
+        const prevServiceBtn = document.getElementById('prevServiceBtn');
+        const nextServiceBtn = document.getElementById('nextServiceBtn');
+        const serviceCounter = document.getElementById('serviceCounter');
+        const serviceProgressBar = document.getElementById('serviceProgressBar');
+        
+        let currentServiceIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const updateServiceModalContent = (index) => {
+            currentServiceIndex = index;
+            const service = servicesData[index];
+            document.getElementById('modalServiceIcon').innerHTML = `<i class="${service.icon}"></i>`;
+            document.getElementById('modalServiceTitle').textContent = service.title;
+            document.getElementById('modalServiceSubtitle').textContent = service.subtitle;
+            document.getElementById('modalServiceBody').innerHTML = `
+                <p>${service.fullDescription}</p>
+                <h4>Para quem é este serviço?</h4>
+                <ul>
+                    ${service.targetAudience.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            `;
+        };
+
+        const updateServiceModalUI = () => {
+            // Atualiza barra de progresso e contador
+            const progress = ((currentServiceIndex + 1) / servicesData.length) * 100;
+            serviceProgressBar.style.width = `${progress}%`;
+            serviceCounter.textContent = `${currentServiceIndex + 1} de ${servicesData.length}`;
+
+            // Atualiza botões de navegação
+            prevServiceBtn.disabled = currentServiceIndex === 0;
+            nextServiceBtn.disabled = currentServiceIndex === servicesData.length - 1;
+        };
+        
+        const openServiceModal = (serviceIndex) => {
+            updateServiceModalContent(serviceIndex);
+            updateServiceModalUI();
+            
+            serviceModal.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+            
+            // Animação de entrada suave
+            const modalBody = document.getElementById('modalServiceBody');
+            modalBody.style.opacity = '0';
+            modalBody.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                modalBody.style.opacity = '1';
+                modalBody.style.transform = 'translateY(0)';
+            }, 50); // Delay pequeno para o CSS pegar
+        };
+        
+        const closeServiceModal = () => {
+            serviceModal.classList.remove('visible');
+            document.body.style.overflow = '';
+        };
+        
+        const navigateToService = (direction) => {
+            if (direction === 'prev' && currentServiceIndex > 0) {
+                currentServiceIndex--;
+            } else if (direction === 'next' && currentServiceIndex < servicesData.length - 1) {
+                currentServiceIndex++;
+            }
+            
+            const modalBody = document.getElementById('modalServiceBody');
+            modalBody.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+            modalBody.style.opacity = '0';
+            modalBody.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                updateServiceModalContent(currentServiceIndex);
+                updateServiceModalUI();
+                modalBody.style.opacity = '1';
+                modalBody.style.transform = 'translateY(0)';
+            }, 200);
+        };
+        
+        // Event listeners para o modal de serviços
+        serviceModalClose.addEventListener('click', closeServiceModal);
+        serviceModal.addEventListener('click', (e) => {
+            if (e.target === serviceModal) closeServiceModal();
+        });
+        
+        prevServiceBtn.addEventListener('click', () => navigateToService('prev'));
+        nextServiceBtn.addEventListener('click', () => navigateToService('next'));
+        
+        // Event listeners para os cards de serviço
+        document.querySelectorAll('.service-card').forEach(card => {
+            const button = card.querySelector('.card-toggle-btn');
+            
+            const openModalAction = () => {
+                const serviceIndex = parseInt(card.dataset.service, 10);
+                openServiceModal(serviceIndex);
+            };
+
+            card.addEventListener('click', openModalAction);
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); // Previne que o evento do card dispare novamente
+                openModalAction();
+            });
+        });
+        
+        // Navegação por teclado
+        document.addEventListener('keydown', (e) => {
+            if (!serviceModal.classList.contains('visible')) return;
+            
+            if (e.key === 'Escape') {
+                closeServiceModal();
+            } else if (e.key === 'ArrowLeft' && !prevServiceBtn.disabled) {
+                navigateToService('prev');
+            } else if (e.key === 'ArrowRight' && !nextServiceBtn.disabled) {
+                navigateToService('next');
+            }
+        });
+        
+        // Swipe para mobile
+        serviceModal.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        serviceModal.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        const handleSwipe = () => {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && !nextServiceBtn.disabled) {
+                    // Swipe left - next
+                    navigateToService('next');
+                } else if (diff < 0 && !prevServiceBtn.disabled) {
+                    // Swipe right - previous
+                    navigateToService('prev');
+                }
+            }
+        };
+        
+        // Efeito de ripple no botão
+        document.querySelectorAll('.btn, .service-nav-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                // Garante que o ripple seja filho do botão
+                if (this.contains(ripple)) {
+                    this.removeChild(ripple);
+                }
+                this.appendChild(ripple);
+            });
+        });
+        
+        // Adiciona CSS para animação de ripple
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.4);
+                transform: scale(0);
+                animation: ripple-effect 0.6s linear;
+                pointer-events: none;
+            }
+            @keyframes ripple-effect {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    });
+  </script>
+</body>
+</html>
