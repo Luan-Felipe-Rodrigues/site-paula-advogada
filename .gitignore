@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+.history/
+
+# Misc
+*.swp
+Thumbs.db
