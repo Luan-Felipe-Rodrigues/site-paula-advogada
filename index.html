@@ -1191,6 +1191,147 @@
       transform: translateY(-3px) scale(1.1);
       box-shadow: var(--shadow-lg);
     }
+
+    /* Chat Widget */
+    .chat-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 6rem;
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+    }
+    .chat-toggle:hover {
+      transform: scale(1.1);
+      background: var(--primary-dark);
+    }
+    .chat-window {
+      display: none;
+      position: fixed;
+      bottom: 6rem;
+      right: 2rem;
+      width: 380px;
+      max-height: 500px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      z-index: 1002;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-window.open {
+      display: flex;
+    }
+    .chat-header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-header h4 { margin: 0; font-size: 0.95rem; }
+    .chat-header button {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      max-height: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .chat-msg {
+      max-width: 85%;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-msg.bot {
+      background: var(--secondary);
+      color: var(--text);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg.user {
+      background: var(--primary);
+      color: var(--white);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-msg a {
+      color: inherit;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .chat-input-area {
+      display: flex;
+      border-top: 1px solid #eee;
+      padding: 0.6rem;
+      gap: 0.5rem;
+    }
+    .chat-input-area input {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .chat-input-area input:focus {
+      border-color: var(--primary);
+    }
+    .chat-input-area button {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .chat-input-area button:hover {
+      background: var(--primary-dark);
+    }
+    .chat-typing {
+      align-self: flex-start;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      .chat-window {
+        width: calc(100% - 2rem);
+        right: 1rem;
+        bottom: 5.5rem;
+        max-height: 60vh;
+      }
+      .chat-toggle {
+        right: 1rem;
+        bottom: 1rem;
+        width: 55px;
+        height: 55px;
+      }
+      .back-to-top { right: 5rem; bottom: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -1520,6 +1661,22 @@
     <i class="fas fa-arrow-up"></i>
   </button>
   
+  <!-- Chat Widget -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Abrir chat">
+    <i class="fas fa-comments"></i>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <h4><i class="fas fa-robot"></i> Assistente Paula Cesare</h4>
+      <button id="chatClose">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Digite sua dúvida..." autocomplete="off">
+      <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast" id="toast-notification">Mensagem enviada com sucesso!</div>
 
@@ -1692,6 +1849,111 @@
         // Supabase config
         const SUPABASE_URL = 'https://xdmpicnibjrvozdxqwgs.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhkbXBpY25pYmpydm96ZHhxd2dzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2MDM1ODIsImV4cCI6MjA4OTE3OTU4Mn0.CO3pyvt3AKGoaKl5Ouix2LxAq5nztKEImok6tT_k_Ug';
+
+        // Chat Widget
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatClose = document.getElementById('chatClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        let chatHistory = [];
+        let chatOpened = false;
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = 'chat-msg ' + sender;
+            div.innerHTML = text.replace(/https:\/\/wa\.me\/\d+/g, '<a href="$&" target="_blank">$&</a>');
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTyping() {
+            const div = document.createElement('div');
+            div.className = 'chat-typing';
+            div.id = 'typing';
+            div.textContent = 'Digitando...';
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTyping() {
+            const el = document.getElementById('typing');
+            if (el) el.remove();
+        }
+
+        async function sendChat(text) {
+            addMessage(text, 'user');
+            chatHistory.push({ role: 'user', content: text });
+            chatInput.value = '';
+            showTyping();
+
+            try {
+                const res = await fetch(SUPABASE_URL + '/functions/v1/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + SUPABASE_KEY
+                    },
+                    body: JSON.stringify({ messages: chatHistory })
+                });
+                const data = await res.json();
+                removeTyping();
+
+                if (data.reply) {
+                    chatHistory.push({ role: 'assistant', content: data.reply });
+                    addMessage(data.reply, 'bot');
+                } else {
+                    addMessage('Desculpe, tive um problema. Fale conosco pelo <a href="https://wa.me/5511971146150" target="_blank">WhatsApp</a>.', 'bot');
+                }
+            } catch (err) {
+                removeTyping();
+                addMessage('Erro de conexão. Fale conosco pelo <a href="https://wa.me/5511971146150" target="_blank">WhatsApp</a>.', 'bot');
+            }
+        }
+
+        chatToggle.addEventListener('click', () => {
+            chatWindow.classList.toggle('open');
+            if (!chatOpened) {
+                chatOpened = true;
+                chatHistory = [{ role: 'user', content: 'Olá' }];
+                showTyping();
+                fetch(SUPABASE_URL + '/functions/v1/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + SUPABASE_KEY
+                    },
+                    body: JSON.stringify({ messages: chatHistory })
+                })
+                .then(r => r.json())
+                .then(data => {
+                    removeTyping();
+                    if (data.reply) {
+                        chatHistory.push({ role: 'assistant', content: data.reply });
+                        addMessage(data.reply, 'bot');
+                    }
+                })
+                .catch(() => {
+                    removeTyping();
+                    addMessage('Olá! Sou a assistente da Dra. Paula Cesare. Como posso ajudar? Se preferir, fale pelo <a href="https://wa.me/5511971146150" target="_blank">WhatsApp</a>.', 'bot');
+                });
+            }
+        });
+
+        chatClose.addEventListener('click', () => chatWindow.classList.remove('open'));
+
+        chatSend.addEventListener('click', () => {
+            const text = chatInput.value.trim();
+            if (text) sendChat(text);
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const text = chatInput.value.trim();
+                if (text) sendChat(text);
+            }
+        });
 
         // Formulário de contato
         const contactForm = document.getElementById('contactForm');
