@@ -1668,24 +1668,49 @@
             }, 3000);
         };
 
+        // Supabase config
+        const SUPABASE_URL = 'https://xdmpicnibjrvozdxqwgs.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhkbXBpY25pYmpydm96ZHhxd2dzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2MDM1ODIsImV4cCI6MjA4OTE3OTU4Mn0.CO3pyvt3AKGoaKl5Ouix2LxAq5nztKEImok6tT_k_Ug';
+
         // Formulário de contato
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
+
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
-            
-            setTimeout(() => {
+
+            try {
+                const response = await fetch(SUPABASE_URL + '/rest/v1/rpc/submit_lead', {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        p_nome: document.getElementById('name').value,
+                        p_email: document.getElementById('email').value,
+                        p_telefone: document.getElementById('phone').value,
+                        p_assunto: 'Consulta via site',
+                        p_mensagem: document.getElementById('message').value
+                    })
+                });
+
+                if (!response.ok) throw new Error('Erro ao enviar');
+
                 contactForm.reset();
+                closeContactModal();
+                showToast('Mensagem enviada com sucesso! Retornaremos em breve.');
+            } catch (err) {
+                showToast('Erro ao enviar. Tente pelo WhatsApp.');
+            } finally {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                closeContactModal();
-                showToast('Mensagem enviada com sucesso!');
-            }, 1500);
+            }
         });
 
         // Navegação suave
