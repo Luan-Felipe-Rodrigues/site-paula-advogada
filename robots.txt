@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luan-felipe-rodrigues.github.io/site-paula-advogada/sitemap.xml
+Sitemap: https://paulacesare.adv.br/sitemap.xml
