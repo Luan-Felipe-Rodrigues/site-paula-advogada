@@ -1089,12 +1089,15 @@
       
       .service-modal-content {
         width: 98%;
-        max-height: 95vh;
-        margin: 1rem;
+        max-height: 88vh;
+        margin: 0 1rem;
+        margin-top: max(1rem, env(safe-area-inset-top, 1rem));
+        border-radius: 16px;
       }
       
       .service-modal-header {
         padding: 1.5rem;
+        padding-top: 2rem;
       }
       
       .service-modal-title {
